@@ -31,8 +31,8 @@ const Header = () => {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
       isScrolled 
-        ? 'bg-gray-900/95 backdrop-blur-lg border-b border-yellow-400/30 shadow-2xl py-1' 
-        : 'bg-gradient-to-b from-gray-900 to-transparent backdrop-blur-sm py-2'
+        ? 'bg-gray-900/90 backdrop-blur-lg border-b border-yellow-400/30 shadow-2xl py-1' // Ligeiramente menos opaco quando rolado
+        : 'bg-gray-950/80 backdrop-blur-md' // Um tom de cinza mais escuro que preto puro, ou ajuste de opacidade
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -52,14 +52,14 @@ const Header = () => {
                   : 'bg-gray-800/50 backdrop-blur-md group-hover:bg-yellow-400/10'
               }`}>
                 <img 
-                  src="logoi.png" // <<-- ATUALIZE AQUI COM O NOME DA SUA NOVA LOGO EDITADA!
+                  src="logoi.png" // Continua usando a logo atual com as partes pretas
                   alt="Energia Vital - Terapias Integrativas"
-                  // Drop-shadow agora para um efeito sutil de profundidade, não para contraste
+                  // Ajustes no drop-shadow para maior visibilidade da logo atual
                   className={`h-12 sm:h-14 lg:h-16 w-auto object-contain 
                     transition-all duration-500 
                     ${isScrolled 
-                      ? 'filter drop-shadow-[0_0_3px_rgba(0,0,0,0.4)]' // Sombra escura sutil quando rolado
-                      : 'filter drop-shadow-[0_0_8px_rgba(0,0,0,0.5)] group-hover:drop-shadow-[0_0_12px_rgba(0,0,0,0.6)]' // Sombra escura no topo, ligeiramente mais forte no hover
+                      ? 'filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]' // Brilho branco mais visível quando rolado
+                      : 'filter drop-shadow-[0_0_15px_rgba(255,255,255,0.7)] group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.9)]' // Brilho branco forte no topo e no hover
                     }
                   `}
                 />
@@ -134,7 +134,7 @@ const Header = () => {
                   href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão na Energia Vital."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-yellow-400/40 transform hover:-translate-y-0.5"
+                  className="flex items-center justify-center space-x-2 w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-shadow-yellow-400/40 transform hover:-translate-y-0.5"
                 >
                   <Phone size={20} />
                   <span>Agende pelo WhatsApp</span>

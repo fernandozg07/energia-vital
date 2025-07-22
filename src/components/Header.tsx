@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, Home, User, Heart, MapPin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,113 +21,120 @@ const Header = () => {
     }
   };
 
+  const navItems = [
+    { id: 'home', label: 'Início', icon: <Home size={18} className="lg:hidden" /> },
+    { id: 'about', label: 'Sobre', icon: <User size={18} className="lg:hidden" /> },
+    { id: 'services', label: 'Tratamentos', icon: <Heart size={18} className="lg:hidden" /> },
+    { id: 'locations', label: 'Localizações', icon: <MapPin size={18} className="lg:hidden" /> }
+  ];
+
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out ${
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${
       isScrolled 
-        ? 'bg-black/95 backdrop-blur-md border-b-2 border-yellow-400 shadow-lg' 
-        : 'bg-black/80 backdrop-blur-sm'
+        ? 'bg-gray-900/95 backdrop-blur-lg border-b border-yellow-400/30 shadow-2xl py-1' 
+        : 'bg-gradient-to-b from-gray-900 to-transparent backdrop-blur-sm py-2'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3 lg:py-4">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <Sparkles className="text-yellow-400" size={28} />
-            <div className="text-white">
-              <h1 className="text-xl sm:text-2xl lg:text-2xl font-bold">
-                Energia Vital
-              </h1>
-            </div>
+        <div className="flex justify-between items-center">
+          {/* Logo com efeitos dinâmicos */}
+          <div className="flex items-center flex-shrink-0">
+            <a 
+              href="#home" 
+              className="flex items-center group"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+              }}
+            >
+              <div className={`p-1.5 rounded-xl transition-all duration-500 ${
+                isScrolled 
+                  ? 'bg-transparent' 
+                  : 'bg-gray-800/50 backdrop-blur-md group-hover:bg-yellow-400/10'
+              }`}>
+                <img 
+                  src="logoi.png" // <<-- ATUALIZE AQUI COM O NOME DA SUA NOVA LOGO EDITADA!
+                  alt="Energia Vital - Terapias Integrativas"
+                  // Drop-shadow agora para um efeito sutil de profundidade, não para contraste
+                  className={`h-12 sm:h-14 lg:h-16 w-auto object-contain 
+                    transition-all duration-500 
+                    ${isScrolled 
+                      ? 'filter drop-shadow-[0_0_3px_rgba(0,0,0,0.4)]' // Sombra escura sutil quando rolado
+                      : 'filter drop-shadow-[0_0_8px_rgba(0,0,0,0.5)] group-hover:drop-shadow-[0_0_12px_rgba(0,0,0,0.6)]' // Sombra escura no topo, ligeiramente mais forte no hover
+                    }
+                  `}
+                />
+              </div>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium text-lg relative group"
-            >
-              Início
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium text-lg relative group"
-            >
-              Sobre
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium text-lg relative group"
-            >
-              Tratamentos
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-            </button>
-            <button 
-              onClick={() => scrollToSection('locations')}
-              className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium text-lg relative group"
-            >
-              Localizações
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-            </button>
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="px-3 py-2 text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium text-lg relative group"
+              >
+                <span className="flex items-center">
+                  {item.label}
+                </span>
+                <span className="absolute left-1/2 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-[calc(100%-1rem)] group-hover:left-2"></span>
+              </button>
+            ))}
           </nav>
 
           {/* CTA Button - Desktop */}
-          <div className="hidden lg:flex">
+          <div className="hidden lg:flex items-center">
             <a
-              href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão de acupuntura na Energia Vital."
+              href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão na Energia Vital."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 xl:px-8 py-3 xl:py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-xl shadow-yellow-400/25 flex items-center space-x-2"
+              className={`ml-4 flex items-center space-x-2 px-6 py-3 rounded-full font-bold text-lg transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-lg hover:shadow-yellow-400/40'
+                  : 'bg-yellow-400/90 hover:bg-yellow-500 text-gray-900 shadow-xl shadow-yellow-400/30 hover:shadow-2xl'
+              } transform hover:-translate-y-0.5`}
             >
-              <Phone size={20} />
+              <Phone size={20} className="flex-shrink-0" />
               <span>Agende pelo WhatsApp</span>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300"
+            className="lg:hidden p-2 text-gray-200 hover:text-yellow-400 rounded-lg transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Menu de navegação"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? (
+              <X size={28} className="text-yellow-400" />
+            ) : (
+              <Menu size={28} />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-yellow-400/30 rounded-b-2xl">
-            <nav className="py-6 space-y-2">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="block w-full text-left px-6 py-3 text-white hover:text-yellow-400 hover:bg-white/5 transition-all duration-300 font-medium text-lg rounded-lg mx-2"
-              >
-                Início
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="block w-full text-left px-6 py-3 text-white hover:text-yellow-400 hover:bg-white/5 transition-all duration-300 font-medium text-lg rounded-lg mx-2"
-              >
-                Sobre
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="block w-full text-left px-6 py-3 text-white hover:text-yellow-400 hover:bg-white/5 transition-all duration-300 font-medium text-lg rounded-lg mx-2"
-              >
-                Tratamentos
-              </button>
-              <button 
-                onClick={() => scrollToSection('locations')}
-                className="block w-full text-left px-6 py-3 text-white hover:text-yellow-400 hover:bg-white/5 transition-all duration-300 font-medium text-lg rounded-lg mx-2"
-              >
-                Localizações
-              </button>
-              <div className="px-4 pt-4">
+          <div className="lg:hidden bg-gray-900/95 backdrop-blur-lg border-t border-yellow-400/20 rounded-b-xl overflow-hidden shadow-2xl">
+            <nav className="py-4 space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="w-full flex items-center px-6 py-4 text-left text-gray-200 hover:text-yellow-400 hover:bg-white/5 transition-all duration-300 text-lg font-medium"
+                >
+                  <span className="mr-3 text-yellow-400">{item.icon}</span>
+                  {item.label}
+                </button>
+              ))}
+              
+              <div className="px-4 pt-2 pb-4">
                 <a
-                  href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão de acupuntura na Energia Vital."
+                  href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão na Energia Vital."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 w-full bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg"
+                  className="flex items-center justify-center space-x-2 w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-yellow-400/40 transform hover:-translate-y-0.5"
                 >
                   <Phone size={20} />
                   <span>Agende pelo WhatsApp</span>

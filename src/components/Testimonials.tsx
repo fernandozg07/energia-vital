@@ -1,5 +1,5 @@
-import React from 'react';
-import { Star, Quote, CheckCircle, PlayCircle } from 'lucide-react'; // PlayCircle reintroduzido para os vídeos
+import React, { useState } from 'react';
+import { Star, Quote, CheckCircle, PlayCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Define um tipo para as informações do vídeo
 type VideoInfo = {
@@ -14,48 +14,45 @@ const Testimonials = () => {
       age: '45 anos',
       condition: 'Enxaqueca Crônica',
       text: 'Sofria com enxaquecas diárias há mais de 10 anos. Depois de apenas 6 sessões de acupuntura na Energia Vital, as crises diminuíram drasticamente. Hoje tenho uma qualidade de vida que não imaginava ser possível.',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
       result: 'Redução de 90% das crises',
-      videoUrl: 'video1.mp4', // Vídeo MP4 direto
-      // >>> IMPORTANTE: Esta thumbnail está aparecendo corretamente para Maria Silva <<<
-      thumbnailImage: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=300' // Exemplo: URL de uma imagem de capa para video1.mp4
+      videoUrl: 'video1.mp4', // Vídeo MP4 direto (assumindo que está na pasta public)
+      thumbnailImage: 'https://example.com/thumbnails/maria_video_capa.jpg' // **SUBSTITUA PELA CAPA REAL DO VÍDEO DA MARIA**
     },
     {
       name: 'João Santos',
       age: '52 anos',
       condition: 'Dores na Coluna',
       text: 'Trabalho em escritório há 20 anos e desenvolvi dores lombares crônicas. A combinação de quiropraxia e acupuntura me devolveu a mobilidade. Não sinto mais dores e posso brincar com meus netos novamente.',
-      image: 'https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
       result: 'Alívio completo das dores',
-      // >>> IMPORTANTE: SUBSTITUA pelo ID do vídeo REAL do João no YouTube ou uma URL de vídeo MP4 <<<
       videoUrl: 'video2.mp4', // Exemplo de URL de vídeo MP4
-      // >>> AQUI VOCÊ DEVE COLOCAR UMA IMAGEM QUE SEJA A CAPA DO VÍDEO DO JOÃO SANTOS <<<
-      // Se você quer que uma imagem diferente da foto de perfil apareça como capa do vídeo,
-      // substitua a URL abaixo por uma imagem que represente o vídeo do João.
-      thumbnailImage: 'https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=300' // Exemplo: URL de uma imagem de capa para video2.mp4
+      thumbnailImage: 'https://example.com/thumbnails/joao_video_capa.jpg' // **SUBSTITUA PELA CAPA REAL DO VÍDEO DO JOÃO**
     },
     {
       name: 'Ana Costa',
       age: '38 anos',
       condition: 'Ansiedade e Insônia',
       text: 'A ansiedade estava controlando minha vida e eu não conseguia dormir. A auriculoterapia e acupuntura transformaram meu sono e diminuíram significativamente minha ansiedade. Finalmente tenho paz interior.',
-      image: 'https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
       result: 'Sono restaurado e ansiedade controlada',
-      // >>> IMPORTANTE: SUBSTITUA pelo ID do vídeo REAL da Ana no YouTube <<<
-      videoUrl: 'YOUR_YOUTUBE_VIDEO_ID_ANA', // Exemplo: Apenas o ID do vídeo do YouTube
+      videoUrl: 'video3.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DA ANA NO YOUTUBE**
+      // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
+      // ou você pode fornecer uma URL específica aqui.
     },
     {
       name: 'Carlos Oliveira',
       age: '60 anos',
       condition: 'Problemas Respiratórios',
       text: 'Bronquite crônica me acompanhava há anos. Os tratamentos naturais da Energia Vital fortaleceram meu sistema respiratório e imunológico. Respiro melhor e tenho muito mais energia.',
-      image: 'https://images.pexels.com/photos/3778212/pexels-photo-3778212.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://images.pexels.com/photos/3778212/pexels-photo-3778212.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
       result: 'Respiração melhorada em 80%',
-      //videoUrl: 'YOUR_YOUTUBE_VIDEO_ID_CARLOS', // Removido o vídeo para Carlos, se não quiser que ele apareça na seção de vídeos
+      videoUrl: 'video4.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DO CARLOS NO YOUTUBE**
+      // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
     },
     {
       name: 'Lucia Ferreira',
@@ -65,6 +62,7 @@ const Testimonials = () => {
       image: 'https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=300',
       rating: 5,
       result: 'Mobilidade restaurada'
+      // Este depoimento não tem videoUrl, então não aparecerá no carrossel de vídeos
     },
     {
       name: 'Roberto Lima',
@@ -73,7 +71,9 @@ const Testimonials = () => {
       text: 'Chegava em casa esgotado todos os dias. As sessões de massagem terapêutica e acupuntura me ajudaram a recuperar minha energia e disposição. Sinto-me renovado e com muito mais qualidade de vida.',
       image: 'https://images.pexels.com/photos/3778896/pexels-photo-3778896.jpeg?auto=compress&cs=tinysrgb&w=300',
       rating: 5,
-      result: 'Energia renovada'
+      result: 'Energia renovada',
+      videoUrl: 'YOUR_YOUTUBE_VIDEO_ID_ROBERTO', // **SUBSTITUA PELO ID REAL DO VÍDEO DO ROBERTO NO YOUTUBE**
+      // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
     }
   ];
 
@@ -83,7 +83,7 @@ const Testimonials = () => {
     const youtubeRegExp = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|)([\w-]{11})(?:\S+)?/;
     const youtubeMatch = url.match(youtubeRegExp);
 
-    if (youtubeMatch && youtubeMatch[1].length === 11) {
+    if (youtubeMatch && youtubeMatch[1] && youtubeMatch[1].length === 11) {
       return { type: 'youtube', source: youtubeMatch[1] };
     }
 
@@ -100,8 +100,11 @@ const Testimonials = () => {
   const videoTestimonials = testimonials.filter(t => t.videoUrl);
 
   // Estado para o modal de vídeo
-  const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
-  const [currentVideoInfo, setCurrentVideoInfo] = React.useState<VideoInfo | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentVideoInfo, setCurrentVideoInfo] = useState<VideoInfo | null>(null);
+
+  // Estado para o carrossel de vídeos
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
   // Abre o modal de vídeo
   const openVideoModal = (videoInfo: VideoInfo) => {
@@ -114,6 +117,48 @@ const Testimonials = () => {
     setIsVideoModalOpen(false);
     setCurrentVideoInfo(null); // Limpa a URL ao fechar para parar o vídeo
   };
+
+  // Funções de navegação do carrossel
+  const goToNextVideo = () => {
+    setCurrentVideoIndex((prevIndex) =>
+      (prevIndex + 1) % videoTestimonials.length
+    );
+  };
+
+  const goToPrevVideo = () => {
+    setCurrentVideoIndex((prevIndex) =>
+      (prevIndex - 1 + videoTestimonials.length) % videoTestimonials.length
+    );
+  };
+
+  // Obtém o depoimento de vídeo atual para exibição no carrossel
+  const displayedVideoTestimonial = videoTestimonials[currentVideoIndex];
+  const displayedVideoInfo = displayedVideoTestimonial?.videoUrl
+    ? getVideoInfo(displayedVideoTestimonial.videoUrl)
+    : null;
+
+  // Lógica para obter a thumbnail do YouTube ou usar a customizada/fallback
+  const getThumbnailUrl = (testimonial: typeof testimonials[0], videoInfo: VideoInfo | null) => {
+    if (testimonial.thumbnailImage) {
+      return testimonial.thumbnailImage; // Prioriza a thumbnailImage definida no objeto
+    }
+    if (videoInfo && videoInfo.type === 'youtube') {
+      // Tenta obter uma thumbnail de alta qualidade do YouTube se não houver thumbnailImage definida
+      return `https://img.youtube.com/vi/${videoInfo.source}/maxresdefault.jpg`;
+    }
+    // Fallback genérico se não houver thumbnailImage e não for YouTube
+    return 'https://via.placeholder.com/480x270?text=Video+Indisponível';
+  };
+
+  // URL do vídeo para o iframe/video tag
+  const getEmbedUrl = (videoInfo: VideoInfo) => {
+    if (videoInfo.type === 'youtube') {
+      // URL de embed do YouTube CORRIGIDA
+      return `https://www.youtube.com/embed/${videoInfo.source}?autoplay=1&rel=0&showinfo=0`;
+    }
+    return videoInfo.source; // Para vídeos diretos
+  };
+
 
   return (
     <section id="testimonials" className="py-16 sm:py-20 lg:py-24 bg-gray-900">
@@ -162,7 +207,7 @@ const Testimonials = () => {
 
               <div className="flex items-center">
                 <img
-                  src={testimonial.image}
+                  src={testimonial.image} // Aqui a foto da pessoa aparece, para os depoimentos de TEXTO
                   alt={`Foto de ${testimonial.name}`}
                   className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover mr-4"
                   loading="lazy"
@@ -180,7 +225,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Seção de Depoimentos em Vídeo (com Quadrados de Miniaturas) */}
+        {/* Seção de Depoimentos em Vídeo (Carrossel) */}
         <div className="mt-16 sm:mt-20 text-center">
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8">
             Depoimentos em Vídeo: Veja as Histórias Reais!
@@ -190,48 +235,75 @@ const Testimonials = () => {
           </p>
 
           {videoTestimonials.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {videoTestimonials.slice(0, 2).map((testimonial, index) => { // Exibe apenas os 2 primeiros vídeos
-                const videoInfo = testimonial.videoUrl ? getVideoInfo(testimonial.videoUrl) : null;
-                const thumbnailUrl =
-                  videoInfo && videoInfo.type === 'youtube'
-                    ? `https://img.youtube.com/vi/${videoInfo.source}/mqdefault.jpg` // Thumbnail do YouTube (CORRIGIDO)
-                    : testimonial.thumbnailImage; // Thumbnail customizada para vídeos diretos
+            <div className="relative max-w-3xl mx-auto"> {/* Container para o carrossel */}
+              {/* Botão de navegação esquerda */}
+              <button
+                onClick={goToPrevVideo}
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-75 text-white p-2 rounded-full shadow-lg z-10 hover:bg-yellow-600 transition-colors duration-300"
+                aria-label="Vídeo anterior"
+              >
+                <ChevronLeft size={32} />
+              </button>
 
-                return (
-                  <div
-                    key={index}
-                    className="cursor-pointer"
-                    onClick={() => videoInfo && openVideoModal(videoInfo)}
-                  >
-                    <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-xl group"> {/* 16:9 Aspect Ratio */}
-                      {/* Imagem de thumbnail ou fallback */}
-                      {thumbnailUrl ? (
-                        <img
-                          src={thumbnailUrl}
-                          alt={`Thumbnail do depoimento de ${testimonial.name}`}
-                          className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      ) : (
-                        // Fallback se não houver thumbnail (para vídeos diretos sem thumbnailImage ou URLs não reconhecidas)
-                        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 text-gray-400">
-                          <span className="text-xl">Vídeo</span>
-                        </div>
-                      )}
-                      {/* Ícone de Play */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity duration-300">
-                        <PlayCircle className="text-white group-hover:text-yellow-400 transition-colors duration-300" size={60} />
+              {/* Conteúdo do vídeo atual do carrossel */}
+              {displayedVideoTestimonial && displayedVideoInfo ? (
+                <div
+                  className="cursor-pointer"
+                  onClick={() => displayedVideoInfo && openVideoModal(displayedVideoInfo)}
+                >
+                  <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-xl group"> {/* 16:9 Aspect Ratio */}
+                    {/* Imagem de thumbnail do vídeo */}
+                    {getThumbnailUrl(displayedVideoTestimonial, displayedVideoInfo) ? (
+                      <img
+                        src={getThumbnailUrl(displayedVideoTestimonial, displayedVideoInfo)}
+                        alt={`Thumbnail do depoimento de ${displayedVideoTestimonial.name}`}
+                        className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 text-gray-400">
+                        <span className="text-xl">Vídeo Indisponível</span>
                       </div>
-                    </div>
-                    {/* Informações do depoimento abaixo da thumbnail */}
-                    <div className="mt-4 text-white text-left">
-                      <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-400">{testimonial.age} • {testimonial.condition}</p>
+                    )}
+                    {/* Ícone de Play */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity duration-300">
+                      <PlayCircle className="text-white group-hover:text-yellow-400 transition-colors duration-300" size={60} />
                     </div>
                   </div>
-                );
-              })}
+                  {/* Informações do depoimento abaixo da thumbnail (apenas nome e condição) */}
+                  <div className="mt-4 text-white text-center"> {/* Centralizado para o carrossel */}
+                    <h4 className="font-bold text-lg">{displayedVideoTestimonial.name}</h4>
+                    <p className="text-sm text-gray-400">{displayedVideoTestimonial.age} • {displayedVideoTestimonial.condition}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-xl flex items-center justify-center">
+                  <p className="text-gray-400">Nenhum vídeo disponível.</p>
+                </div>
+              )}
+
+              {/* Botão de navegação direita */}
+              <button
+                onClick={goToNextVideo}
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-700 bg-opacity-75 text-white p-2 rounded-full shadow-lg z-10 hover:bg-yellow-600 transition-colors duration-300"
+                aria-label="Próximo vídeo"
+              >
+                <ChevronRight size={32} />
+              </button>
+
+              {/* Indicadores de slide */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {videoTestimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentVideoIndex(idx)}
+                    className={`w-3 h-3 rounded-full ${
+                      currentVideoIndex === idx ? 'bg-yellow-600' : 'bg-gray-600 hover:bg-gray-500'
+                    } transition-colors duration-300`}
+                    aria-label={`Ir para o vídeo ${idx + 1}`}
+                  ></button>
+                ))}
+              </div>
             </div>
           ) : (
             <p className="text-gray-400 mt-8">Nenhum depoimento em vídeo disponível no momento.</p>
@@ -303,7 +375,7 @@ const Testimonials = () => {
                 {currentVideoInfo.type === 'youtube' ? (
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${currentVideoInfo.source}?autoplay=1&rel=0&showinfo=0`} // URL de embed do YouTube (CORRIGIDO)
+                    src={getEmbedUrl(currentVideoInfo)} // Usa a função corrigida
                     title="Depoimento em vídeo do YouTube"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -312,7 +384,7 @@ const Testimonials = () => {
                 ) : (
                   <video
                     className="absolute top-0 left-0 w-full h-full"
-                    src={currentVideoInfo.source}
+                    src={getEmbedUrl(currentVideoInfo)} // Usa a função corrigida
                     controls
                     autoPlay
                     title="Depoimento em vídeo"

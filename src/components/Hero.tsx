@@ -110,7 +110,7 @@ const Hero = () => {
                     rel="noopener noreferrer"
                     className="w-full bg-yellow-400 hover:bg-yellow-500 text-black px-4 sm:px-6 py-3 rounded-full font-bold text-sm sm:text-base text-center transition-all duration-300 transform hover:-translate-y-1 inline-block"
                   >
-                    Consulta Gratuita
+                    Marque Sua Consulta
                   </a>
                 </div>
               </div>

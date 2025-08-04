@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Instagram, Facebook, Heart } from 'lucide-react';
+import { MapPin, Phone, Clock, Instagram, Facebook, Heart, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -12,19 +12,19 @@ const Footer = () => {
               src="/logo.png" 
               alt="Energia Vital - Acupuntura e Terapias Naturais" 
               className="h-12 sm:h-16 w-auto mb-6"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling!.style.display = 'block';
-              }}
             />
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 hidden">Energia Vital</h3>
+            {/* O texto abaixo serve como fallback caso a imagem não carregue */}
+            {/* <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Energia Vital</h3> */}
+            
             <p className="text-gray-300 mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base">
               Há mais de 15 anos transformando vidas através da acupuntura e terapias naturais. 
               Equilibramos corpo e mente para restaurar sua energia vital.
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/energiavital.acupuntura?igsh=azkwam54dzdldjFk" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 p-2 rounded-full hover:bg-white/10"
                 aria-label="Instagram da Energia Vital"
               >
@@ -158,6 +158,17 @@ const Footer = () => {
                 <div>
                   <span className="font-bold text-lg sm:text-xl block">(11) 99999-7316</span>
                   <span className="text-sm text-gray-400">WhatsApp • Resposta rápida</span>
+                </div>
+              </a>
+              {/* Novo link de e-mail */}
+              <a
+                href="mailto:apiterapiaeacupuntura@gmail.com"
+                className="flex items-center space-x-3 text-gray-300 hover:text-yellow-400 transition-colors duration-300 group mt-4 sm:mt-0"
+              >
+                <Mail size={28} className="group-hover:scale-110 transition-transform duration-300" />
+                <div>
+                  <span className="font-bold text-lg sm:text-xl block">apiterapiaeacupuntura@gmail.com</span>
+                  <span className="text-sm text-gray-400">E-mail • Dúvidas e contato</span>
                 </div>
               </a>
             </div>

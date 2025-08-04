@@ -13,7 +13,8 @@ const Hero = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Conteúdo Principal */}
+          
+          {/* Conteúdo Principal (Agora sempre o primeiro elemento no mobile) */}
           <div className="text-center lg:text-left animate-fade-in">
             <div className="flex items-center justify-center lg:justify-start space-x-3 mb-6 sm:mb-8">
               <Sparkles className="text-yellow-400" size={32} />
@@ -67,8 +68,8 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Card de Destaque */}
-          <div className="relative order-first lg:order-last animate-slide-up">
+          {/* Card de Destaque (Agora é o segundo elemento no código, mas 'order-last' o move para a direita no desktop) */}
+          <div className="relative lg:order-last animate-slide-up">
             <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border-2 border-yellow-400/20">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-400 rounded-full flex items-center justify-center">
@@ -105,7 +106,7 @@ const Hero = () => {
                 
                 <div className="pt-4">
                   <a
-                    href="https://wa.me/5511999997316?text=Olá! Gostaria de uma consulta gratuita na Energia Vital."
+                    href="https://wa.me/5511999997316?text=Olá! Gostaria de marcar minha consulta na Energia Vital."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full bg-yellow-400 hover:bg-yellow-500 text-black px-4 sm:px-6 py-3 rounded-full font-bold text-sm sm:text-base text-center transition-all duration-300 transform hover:-translate-y-1 inline-block"

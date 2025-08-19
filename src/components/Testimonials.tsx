@@ -10,69 +10,70 @@ type VideoInfo = {
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Maria Silva',
-      age: '45 anos',
-      condition: 'Enxaqueca Crônica',
-      text: 'Sofria com enxaquecas diárias há mais de 10 anos. Depois de apenas 6 sessões de acupuntura na Energia Vital, as crises diminuíram drasticamente. Hoje tenho uma qualidade de vida que não imaginava ser possível.',
+      name: 'Márcia',
+      age: '58 anos',
+      condition: 'Dores crônicas na cervical e ombro',
+      text: 'Eu tinha um problema sério de muito tempo na minha cervical e no meu ombro. Cheguei aqui na Energia Vital, comecei o tratamento com o Alexandre de apiterapia e hoje me sinto muito bem! Minha vida está muito melhor, não tenho mais aquelas dores. É um tratamento maravilhoso e o Alexandre é um excelente profissional. Eu recomendo!',
       image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
-      result: 'Redução de 90% das crises',
+      result: 'Redução de 90% das crisesAlívio de dores crônicas',
       videoUrl: 'video1.mp4', // Vídeo MP4 direto (assumindo que está na pasta public)
       thumbnailImage: 'https://example.com/thumbnails/maria_video_capa.jpg' // **SUBSTITUA PELA CAPA REAL DO VÍDEO DA MARIA**
     },
     {
-      name: 'João Santos',
-      age: '52 anos',
-      condition: 'Dores na Coluna',
-      text: 'Trabalho em escritório há 20 anos e desenvolvi dores lombares crônicas. A combinação de quiropraxia e acupuntura me devolveu a mobilidade. Não sinto mais dores e posso brincar com meus netos novamente.',
+      name: 'Antônio',
+      age: '68 anos',
+      condition: 'Dificuldade de movimento e respiração',
+      text: 'Eu tinha dificuldade até para respirar, para me mexer e me mover. Depois do tratamento, não sinto mais nada. Posso abaixar e levantar que não sinto nada, nada, nada. Parece que tiraram com as mãos!',
       image: 'https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
-      result: 'Alívio completo das dores',
+      result: 'Total alívio das dores e recuperação dos movimentos',
       videoUrl: 'video2.mp4', // Exemplo de URL de vídeo MP4
       thumbnailImage: 'https://example.com/thumbnails/joao_video_capa.jpg' // **SUBSTITUA PELA CAPA REAL DO VÍDEO DO JOÃO**
     },
     {
-      name: 'Ana Costa',
-      age: '38 anos',
-      condition: 'Ansiedade e Insônia',
-      text: 'A ansiedade estava controlando minha vida e eu não conseguia dormir. A auriculoterapia e acupuntura transformaram meu sono e diminuíram significativamente minha ansiedade. Finalmente tenho paz interior.',
+      name: 'Fátima',
+      age: '69 anos',
+      condition: 'Dores crônicas (bursite, artrose e problemas na coluna)',
+      text: 'Eu cheguei aqui ruim, pedia a morte de tanta dor. Tinha bursite, artrose, cirurgia na coluna e meu joelho me impedia de andar. A partir do momento que comecei a fazer acupuntura, minha vida foi melhorando. Hoje não sinto mais aquelas dores horríveis. Recomendo para todo mundo! Faço também o ozônio e o tratamento com abelhas e só tenho que agradecer.',
       image: 'https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
-      result: 'Sono restaurado e ansiedade controlada',
+      result: 'Alívio de dores crônicas e recuperação da mobilidade',
       videoUrl: 'video3.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DA ANA NO YOUTUBE**
       // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
       // ou você pode fornecer uma URL específica aqui.
     },
     {
-      name: 'Carlos Oliveira',
-      age: '60 anos',
-      condition: 'Problemas Respiratórios',
-      text: 'Bronquite crônica me acompanhava há anos. Os tratamentos naturais da Energia Vital fortaleceram meu sistema respiratório e imunológico. Respiro melhor e tenho muito mais energia.',
+      name: 'Celso Simonini de Agoni',
+      age: '78 anos',
+      condition: 'Problema no Joelho',
+      text: 'Eu tinha um problema no joelho e não podia nem andar. Depois do tratamento com ozonioterapia, estou 100% melhor! Já estou caminhando normal e quase correndo. Estou ótimo, vale muito a pena!',
       image: 'https://images.pexels.com/photos/3778212/pexels-photo-3778212.jpeg?auto=compress&cs=tinysrgb&w=300', // Foto para depoimento de texto
       rating: 5,
-      result: 'Respiração melhorada em 80%',
+      result: 'Mobilidade restaurada e 100% de melhora',
       videoUrl: 'video4.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DO CARLOS NO YOUTUBE**
       // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
     },
     {
-      name: 'Lucia Ferreira',
+      name: 'Selma Regina Zanini',
       age: '55 anos',
-      condition: 'Artrite',
-      text: 'A apiterapia foi revolucionária no tratamento da minha artrite. As dores nas articulações diminuíram drasticamente e recuperei mobilidade que havia perdido. Recomendo para todos que sofrem com dores.',
+      condition: 'Bem-estar Geral e Equilíbrio',
+      text: 'Faço acupuntura e apiterapia com o Alexandre e a equipe da Energia Vital desde 2018. Com o tratamento, sinto um equilíbrio energético e emocional. Dificilmente tenho dores ou fico doente. Sou muito grata a toda a equipe e recomendo a todos!',
       image: 'https://images.pexels.com/photos/3785076/pexels-photo-3785076.jpeg?auto=compress&cs=tinysrgb&w=300',
       rating: 5,
-      result: 'Mobilidade restaurada'
+      result: 'Mobilidade restaurada',
+      videoUrl: 'video6.mp4',
       // Este depoimento não tem videoUrl, então não aparecerá no carrossel de vídeos
     },
     {
-      name: 'Roberto Lima',
-      age: '42 anos',
-      condition: 'Estresse e Fadiga',
-      text: 'Chegava em casa esgotado todos os dias. As sessões de massagem terapêutica e acupuntura me ajudaram a recuperar minha energia e disposição. Sinto-me renovado e com muito mais qualidade de vida.',
+      name: 'Maria Thereza Clerice',
+      age: '77 anos',
+      condition: 'Problema no Dedo e Dor na Mão',
+      text: 'Eu tinha um problema no dedo médio da mão direita que ficou torto e doía muito. O tratamento com apiterapia me devolveu o movimento. Agora meu dedo endireitou e consigo fazer crochê e tricô sem dor. Minha mão está ótima!',
       image: 'https://images.pexels.com/photos/3778896/pexels-photo-3778896.jpeg?auto=compress&cs=tinysrgb&w=300',
       rating: 5,
-      result: 'Energia renovada',
-      videoUrl: 'YOUR_YOUTUBE_VIDEO_ID_ROBERTO', // **SUBSTITUA PELO ID REAL DO VÍDEO DO ROBERTO NO YOUTUBE**
+      result: 'Dedo endireitado e alívio total da dor',
+      videoUrl: 'video5.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DO ROBERTO NO YOUTUBE**
       // Para vídeos do YouTube, a thumbnail pode ser gerada automaticamente se thumbnailImage for undefined
     }
   ];

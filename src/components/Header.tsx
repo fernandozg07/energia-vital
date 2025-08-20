@@ -53,11 +53,11 @@ const Header = () => {
                 <img 
                   src="logoi.png"
                   alt="Energia Vital - Terapias Integrativas"
-                  className={`h-10 sm:h-12 lg:h-14 w-auto object-contain brightness-0 invert
+                  className={`h-12 sm:h-14 lg:h-16 w-auto object-contain 
                     transition-all duration-500 
                     ${isScrolled 
-                      ? 'opacity-90'
-                      : 'opacity-100 group-hover:scale-105'
+                      ? 'filter drop-shadow-[0_0_10px_rgba(255,255,255,0.7)]'
+                      : 'filter drop-shadow-[0_0_20px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_30px_rgba(255,255,255,1)]'
                     }
                   `}
                 />

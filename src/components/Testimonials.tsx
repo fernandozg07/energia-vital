@@ -42,7 +42,7 @@ const Testimonials = () => {
       // ou você pode fornecer uma URL específica aqui.
     },
     {
-      name: 'Nelso Simonini de Agoni',
+      name: 'Nelson Simonini de Agoni',
       age: '78 anos',
       condition: 'Problema no Joelho',
       text: 'Eu tinha um problema no joelho e não podia nem andar. Depois do tratamento com ozonioterapia, estou 100% melhor! Já estou caminhando normal e quase correndo. Estou ótimo, vale muito a pena!',
@@ -286,7 +286,7 @@ const Testimonials = () => {
               <div className="text-black/80 font-medium">Pacientes Atendidos</div>
             </div>
             <div>
-              <div className="text-4xl sm:text-5xl font-bold text-black mb-2">15+</div>
+              <div className="text-4xl sm:text-5xl font-bold text-black mb-2">10</div>
               <div className="text-black/80 font-medium">Anos de Experiência</div>
             </div>
             <div>
@@ -307,7 +307,7 @@ const Testimonials = () => {
           </h3>
           <p className="text-gray-300 mb-8 sm:mb-10 text-lg sm:text-xl max-w-3xl mx-auto">
             Junte-se a centenas de pessoas que já transformaram suas vidas.
-            Agende sua consulta gratuita e descubra como podemos ajudar você.
+            Agende sua consulta e descubra como podemos ajudar você.
           </p>
           <a
             href="https://wa.me/5511999997316?text=Olá! Vi os depoimentos no site e gostaria de agendar uma consulta na Energia Vital."

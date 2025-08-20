@@ -11,7 +11,7 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-yellow-600 mx-auto mb-6 sm:mb-8"></div>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Há mais de 15 anos transformando vidas através da medicina tradicional chinesa 
+            Há mais de 10 anos transformando vidas através da Medicina Tradicional Chinesa 
             e terapias naturais, com foco no seu bem-estar integral.
           </p>
         </div>
@@ -43,7 +43,7 @@ const About = () => {
             {/* Estatísticas de Credibilidade */}
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="text-center p-4 bg-white rounded-2xl shadow-lg">
-                <div className="text-3xl font-bold text-yellow-600 mb-2">15+</div>
+                <div className="text-3xl font-bold text-yellow-600 mb-2">10</div>
                 <div className="text-gray-700 font-medium">Anos de Experiência</div>
               </div>
               <div className="text-center p-4 bg-white rounded-2xl shadow-lg">
@@ -105,7 +105,7 @@ const About = () => {
             Pronto para Transformar sua Vida?
           </h3>
           <p className="text-gray-300 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed text-base sm:text-lg lg:text-xl">
-            Agende uma consulta gratuita e descubra como nossas terapias naturais 
+            Agende uma consulta e descubra como nossas terapias naturais 
             podem ajudar você a recuperar sua energia vital e bem-estar.
           </p>
           <a
@@ -114,7 +114,7 @@ const About = () => {
             rel="noopener noreferrer"
             className="bg-yellow-600 hover:bg-yellow-500 text-black px-10 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-yellow-600/25 inline-block"
           >
-            Consulta Gratuita via WhatsApp
+            Consulta via WhatsApp
           </a>
         </div>
       </div>

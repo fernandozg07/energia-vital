@@ -54,8 +54,8 @@ const Hero = () => {
             {/* Estatísticas */}
             <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-sm mx-auto lg:mx-0">
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">15+</div>
-                <div className="text-white font-medium text-xs sm:text-sm">Anos</div>
+                <div className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">10</div>
+                <div className="text-white font-medium text-xs sm:text-sm">Anos de Experiência</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl sm:text-3xl font-bold text-yellow-400 mb-2">500+</div>

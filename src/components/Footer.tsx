@@ -17,7 +17,7 @@ const Footer = () => {
             {/* <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Energia Vital</h3> */}
             
             <p className="text-gray-300 mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base">
-              Há mais de 15 anos transformando vidas através da acupuntura e terapias naturais. 
+              Há mais de 10 anos transformando vidas através da acupuntura e terapias naturais. 
               Equilibramos corpo e mente para restaurar sua energia vital.
             </p>
             <div className="flex space-x-4">

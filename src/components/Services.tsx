@@ -7,21 +7,21 @@ const Services = () => {
       title: 'Acupuntura',
       description: 'Alívio natural para dores crônicas, enxaquecas, ansiedade e estresse. Técnica milenar que equilibra sua energia vital.',
       image: '/acupuntura.jpg',
-      category: 'Medicina Tradicional',
+      category: 'Medicina Tradicional Chinesa',
       benefits: ['Alívio da dor', 'Redução do estresse', 'Melhora do sono']
     },
     {
       title: 'Eletroacupuntura',
       description: 'Potencialize os resultados da acupuntura tradicional com estímulos elétricos suaves para tratamentos mais eficazes.',
       image: '/eletro.jpg',
-      category: 'Medicina Tradicional',
+      category: 'Medicina Tradicional Chinesa',
       benefits: ['Resultados potencializados', 'Recuperação acelerada', 'Alívio duradouro']
     },
     {
       title: 'Moxabustão',
       description: 'Fortalecimento do organismo através do calor terapêutico da artemísia, estimulando pontos específicos.',
       image: '/moxa.jpg',
-      category: 'Medicina Tradicional',
+      category: 'Medicina Tradicional Chinesa',
       benefits: ['Fortalece imunidade', 'Melhora circulação', 'Energia vital']
     },
     {
@@ -35,7 +35,7 @@ const Services = () => {
       title: 'Auriculoterapia',
       description: 'Tratamento através de pontos reflexos na orelha para diversos problemas de saúde e dependências.',
       image: '/auriculo.jpg',
-      category: 'Medicina Tradicional',
+      category: 'Medicina Tradicional Chinesa',
       benefits: ['Controle da ansiedade', 'Auxílio no emagrecimento', 'Redução de vícios']
     },
     {
@@ -63,7 +63,7 @@ const Services = () => {
       title: 'Ventosaterapia',
       description: 'Melhora da circulação e eliminação de toxinas através da técnica milenar das ventosas.',
       image: '/ventosa.jpg',
-      category: 'Medicina Tradicional',
+      category: 'Medicina Tradicional Chinesa',
       benefits: ['Circulação melhorada', 'Desintoxicação', 'Alívio muscular']
     }
   ];
@@ -151,7 +151,7 @@ const Services = () => {
               rel="noopener noreferrer"
               className="bg-black hover:bg-gray-800 text-white px-10 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl inline-block"
             >
-              Avaliação Gratuita
+              Avaliação
             </a>
           </div>
         </div>

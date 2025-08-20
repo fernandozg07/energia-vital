@@ -13,7 +13,7 @@ const Locations = () => {
       ],
       color: 'yellow',
       image: '/frente.jpg',
-      features: ['Estacionamento gratuito', 'Ambiente climatizado', 'Fácil acesso']
+      features: ['Estacionamento gratuito', 'Fácil acesso']
     },
     {
       name: 'Vila Palmeiras',

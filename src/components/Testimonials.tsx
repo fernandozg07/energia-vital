@@ -12,15 +12,15 @@ const Testimonials = () => {
     {
       name: 'Nilzete',
       age: '58 anos',
-      condition: 'Dores crônicas na cervical e ombro',
-      text: 'Eu tinha um problema sério de muito tempo na minha cervical e no meu ombro. Cheguei aqui na Energia Vital, comecei o tratamento com o Alexandre de apiterapia e hoje me sinto muito bem! Minha vida está muito melhor, não tenho mais aquelas dores. É um tratamento maravilhoso e o Alexandre é um excelente profissional. Eu recomendo!',
+      condition: 'Tosse, falta de ar e sequelas da COVID-19',
+      text: 'Eu estava com muita tosse, falta de ar e sequelas da COVID-19. Depois que comecei o tratamento na Energia Vital, minha respiração melhorou muito e a tosse praticamente desapareceu. Me sinto muito melhor agora! É um tratamento maravilhoso e o Alexandre é um excelente profissional. Eu recomendo!',
       image: '1i.jpg', // Foto para depoimento de texto
       rating: 5,
       result: 'Redução de 90% das crisesAlívio de dores crônicas',
       videoUrl: 'video1.mp4', // Vídeo MP4 direto (assumindo que está na pasta public)
     },
     {
-      name: 'Geraldo',
+      name: 'Nelson',
       age: '68 anos',
       condition: 'Dificuldade de movimento e respiração',
       text: 'Eu tinha dificuldade até para respirar, para me mexer e me mover. Depois do tratamento, não sinto mais nada. Posso abaixar e levantar que não sinto nada, nada, nada. Parece que tiraram com as mãos!',

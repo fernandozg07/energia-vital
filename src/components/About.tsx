@@ -114,7 +114,7 @@ const About = () => {
             rel="noopener noreferrer"
             className="bg-yellow-600 hover:bg-yellow-500 text-black px-10 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-yellow-600/25 inline-block"
           >
-            Consulta via WhatsApp
+            Agende sua sessão
           </a>
         </div>
       </div>

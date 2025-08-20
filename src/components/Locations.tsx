@@ -24,7 +24,7 @@ const Locations = () => {
       ],
       color: 'yellow',
       image: '/image.png',
-      features: ['Ambiente acolhedor', 'Localização central', 'Atendimento personalizado']
+      features: ['Ambiente acolhedor', 'Atendimento personalizado']
     }
   ];
 

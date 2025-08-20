@@ -56,7 +56,7 @@ const WhatsAppButton = () => {
               </p>
               <div className="bg-yellow-50 rounded-lg p-2 border-l-4 border-yellow-600">
                 <p className="text-xs text-gray-600">
-                  <strong>Consulta gratuita</strong> • Resposta rápida
+                  <strong>Agende sua consulta</strong> • Resposta rápida
                 </p>
               </div>
             </div>

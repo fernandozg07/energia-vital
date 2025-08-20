@@ -10,7 +10,7 @@ type VideoInfo = {
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Márcia',
+      name: 'Nilzete',
       age: '58 anos',
       condition: 'Dores crônicas na cervical e ombro',
       text: 'Eu tinha um problema sério de muito tempo na minha cervical e no meu ombro. Cheguei aqui na Energia Vital, comecei o tratamento com o Alexandre de apiterapia e hoje me sinto muito bem! Minha vida está muito melhor, não tenho mais aquelas dores. É um tratamento maravilhoso e o Alexandre é um excelente profissional. Eu recomendo!',

@@ -16,7 +16,7 @@ const Testimonials = () => {
       text: 'Eu estava com muita tosse, falta de ar e sequelas da COVID-19. Depois que comecei o tratamento na Energia Vital, minha respiração melhorou muito e a tosse praticamente desapareceu. Me sinto muito melhor agora! É um tratamento maravilhoso e o Alexandre é um excelente profissional. Eu recomendo!',
       image: '1i.jpg', // Foto para depoimento de texto
       rating: 5,
-      result: 'Redução de 90% das crisesAlívio de dores crônicas',
+      result: 'Melhora significativa da respiração e redução da tosse',
       videoUrl: 'video1.mp4', // Vídeo MP4 direto (assumindo que está na pasta public)
     },
     {

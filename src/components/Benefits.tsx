@@ -129,7 +129,7 @@ const Benefits = () => {
           </h3>
           <p className="text-gray-300 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed text-base sm:text-lg lg:text-xl">
             Cada pessoa é única, e nossos tratamentos são personalizados para suas necessidades específicas. 
-            Agende uma consulta gratuita e inicie sua jornada de bem-estar hoje mesmo.
+            Agende uma consulta e inicie sua jornada de bem-estar hoje mesmo.
           </p>
           <a
             href="https://wa.me/5511999997316?text=Olá! Gostaria de uma consulta gratuita para avaliar meu caso na Energia Vital."
@@ -137,7 +137,7 @@ const Benefits = () => {
             rel="noopener noreferrer"
             className="bg-yellow-600 hover:bg-yellow-500 text-black px-10 sm:px-12 py-4 sm:py-5 rounded-full font-bold text-lg sm:text-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-yellow-600/25 inline-block"
           >
-            Consulta Gratuita via WhatsApp
+            Tire suas dúvidas
           </a>
         </div>
       </div>

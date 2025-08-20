@@ -68,7 +68,7 @@ const Testimonials = () => {
       age: '77 anos',
       condition: 'Problema no Dedo e Dor na Mão',
       text: 'Eu tinha um problema no dedo médio da mão direita que ficou torto e doía muito. O tratamento com apiterapia me devolveu o movimento. Agora meu dedo endireitou e consigo fazer crochê e tricô sem dor. Minha mão está ótima!',
-      image: '6i.jpg',
+      image: 'i6.jpg',
       rating: 5,
       result: 'Dedo endireitado e alívio total da dor',
       videoUrl: 'video5.mp4', // **SUBSTITUA PELO ID REAL DO VÍDEO DO ROBERTO NO YOUTUBE**
@@ -244,13 +244,13 @@ const Testimonials = () => {
                   className="cursor-pointer"
                   onClick={() => displayedVideoInfo && openVideoModal(displayedVideoInfo)}
                 >
-                  <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-xl group"> {/* 16:9 Aspect Ratio */}
+                  <div className="relative pt-[56.25%] bg-black rounded-lg overflow-hidden shadow-xl"> {/* 16:9 Aspect Ratio */}
                     {/* Imagem de thumbnail do vídeo */}
                     {getThumbnailUrl(displayedVideoInfo) ? (
                       <img
                         src={getThumbnailUrl(displayedVideoInfo)}
                         alt={`Thumbnail do depoimento de ${displayedVideoTestimonial.name}`}
-                        className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="absolute top-0 left-0 w-full h-full object-cover"
                         loading="lazy"
                       />
                     ) : (
@@ -259,8 +259,8 @@ const Testimonials = () => {
                       </div>
                     )}
                     {/* Ícone de Play */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-opacity duration-300">
-                      <PlayCircle className="text-white group-hover:text-yellow-400 transition-colors duration-300" size={60} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <PlayCircle className="text-white" size={60} />
                     </div>
                   </div>
                   {/* Informações do depoimento abaixo da thumbnail (apenas nome e condição) */}

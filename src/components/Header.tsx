@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Phone } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,11 +53,11 @@ const Header = () => {
                 <img 
                   src="logoi.png"
                   alt="Energia Vital - Terapias Integrativas"
-                  className={`h-12 sm:h-14 lg:h-16 w-auto object-contain 
+                  className={`h-10 sm:h-12 lg:h-14 w-auto object-contain brightness-0 invert
                     transition-all duration-500 
                     ${isScrolled 
-                      ? 'filter drop-shadow-[0_0_10px_rgba(255,255,255,0.7)]'
-                      : 'filter drop-shadow-[0_0_20px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_30px_rgba(255,255,255,1)]'
+                      ? 'opacity-90'
+                      : 'opacity-100 group-hover:scale-105'
                     }
                   `}
                 />
@@ -64,13 +65,13 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Navigation links */}
-          <nav className="flex items-center space-x-2 sm:space-x-4 md:space-x-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="px-1 py-2 text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium text-sm md:text-base relative group"
+                className="px-2 py-2 text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium text-base relative group"
               >
                 <span className="flex items-center">
                   {item.label}
@@ -80,24 +81,62 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="flex items-center ml-4">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300"
+            aria-label="Menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:flex items-center ml-4">
             <a
               href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão na Energia Vital."
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full font-bold text-sm sm:text-base transition-all duration-300 ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 ${
                 isScrolled
                   ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-900 shadow-lg hover:shadow-yellow-400/40'
                   : 'bg-yellow-400/90 hover:bg-yellow-500 text-gray-900 shadow-xl shadow-yellow-400/30 hover:shadow-2xl'
               } transform hover:-translate-y-0.5`}
             >
-              <Phone size={18} className="flex-shrink-0" />
-              <span className="hidden sm:inline">Agende pelo WhatsApp</span>
-              <span className="sm:hidden">Agendar</span>
+              <Phone size={16} className="flex-shrink-0" />
+              <span>Agendar</span>
             </a>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-t border-yellow-400/30 shadow-2xl">
+            <nav className="px-4 py-6 space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    scrollToSection(item.id);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 text-gray-200 hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg transition-all duration-300 font-medium"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <a
+                href="https://wa.me/5511999997316?text=Olá! Gostaria de agendar uma sessão na Energia Vital."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center space-x-2 w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-3 rounded-lg font-bold transition-all duration-300 mt-4"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Phone size={18} />
+                <span>Agendar pelo WhatsApp</span>
+              </a>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

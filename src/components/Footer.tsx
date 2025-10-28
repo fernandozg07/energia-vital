@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo e Descrição */}
           <div className="lg:col-span-1">
             <img 
-              src="/logo.jgp" 
+              src="/logo.jpg" 
               alt="Energia Vital - Acupuntura e Terapias Naturais" 
               className="h-12 sm:h-16 w-auto mb-6"
             />
